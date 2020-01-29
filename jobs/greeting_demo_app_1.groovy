@@ -50,10 +50,9 @@ job('greeting-demo-app-1') {
         git '/home/jenkins/greeting-demo-app'
     }
     steps {
-        shell 'echo $COMMIT_ID'
-        shell 'date > /home/jenkins/greeting-demo-app/data'
-        shell 'cd /home/jenkins/greeting-demo-app/ && git add data'
-        shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m data'
+        shell 'echo $GIT_COMMIT >> /home/jenkins/greeting-demo-app/README.md'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git add README'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m README'
         shell 'echo $COMMIT_ID'
         gradle('build')
         shell 'echo $COMMIT_ID'
@@ -65,7 +64,7 @@ job('greeting-demo-app-1') {
 }
 job('downstream1') {
     parameters {
-        stringParam('COMMIT_ID')
+        stringParam('$COMMIT_ID')
 
     }
 
