@@ -76,5 +76,9 @@ job('downstream1') {
         shell "git checkout \${GIT_COMMIT} README.md"
         shell "cat README.md"
     }
+    wrappers {
+        timestamps()
+        colorizeOutput()
+    }
 
 }
