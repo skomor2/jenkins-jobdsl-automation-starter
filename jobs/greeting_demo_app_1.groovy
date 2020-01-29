@@ -53,9 +53,9 @@ job('greeting-demo-app-1') {
         shell 'echo $GIT_COMMIT >> /home/jenkins/greeting-demo-app/README.md'
         shell 'cd /home/jenkins/greeting-demo-app/ && git add README.md'
         shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m README.md'
-        shell 'echo $COMMIT_ID'
+        shell 'echo GIT_COMMIT'
         gradle('build')
-        shell 'echo $COMMIT_ID'
+        shell 'echo GIT_COMMIT'
 
     }
 
