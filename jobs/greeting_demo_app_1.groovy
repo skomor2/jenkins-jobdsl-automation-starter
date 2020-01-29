@@ -51,8 +51,8 @@ job('greeting-demo-app-1') {
     }
     steps {
         shell 'echo $GIT_COMMIT >> /home/jenkins/greeting-demo-app/README.md'
-        shell 'cd /home/jenkins/greeting-demo-app/ && git add README'
-        shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m README'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git add README.md'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m README.md'
         shell 'echo $COMMIT_ID'
         gradle('build')
         shell 'echo $COMMIT_ID'
