@@ -73,7 +73,8 @@ job('downstream1') {
     }
     steps {
         shell "echo \${GIT_COMMIT}"
-
+        shell "git checkout \${GIT_COMMIT} README.md"
+        shell "cat README.md"
     }
 
 }
