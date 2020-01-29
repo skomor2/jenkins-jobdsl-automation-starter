@@ -50,11 +50,13 @@ job('greeting-demo-app-1') {
         git '/home/jenkins/greeting-demo-app'
     }
     steps {
-
+        shell 'echo $COMMIT_ID'
         shell 'date > /home/jenkins/greeting-demo-app/data'
         shell 'cd /home/jenkins/greeting-demo-app/ && git add data'
         shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m data'
+        shell 'echo $COMMIT_ID'
         gradle('build')
+        shell 'echo $COMMIT_ID'
 
     }
 
@@ -68,7 +70,7 @@ job('downstream1') {
     }
 
     steps {
-        shell "echo \$COMMIT_ID"
+        shell "echo \${COMMIT_ID}"
     }
 
 }
