@@ -68,7 +68,7 @@ job('downstream1') {
     }
 
     steps {
-        shell "echo $COMMIT_ID"
+        shell "echo \$COMMIT_ID"
     }
 
 }
