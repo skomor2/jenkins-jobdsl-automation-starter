@@ -40,7 +40,7 @@ job('greeting-demo-app-1') {
             downstreamParameterized {
                 trigger('downstream1') {
                     parameters {
-                        predefinedProp('COMMIT_ID', '$COMMIT_ID')
+                        predefinedProp('GIT_COMMIT', '$GIT_COMMIT')
                     }
                 }
             }
@@ -61,15 +61,19 @@ job('greeting-demo-app-1') {
 
 
 
+
 }
 job('downstream1') {
     parameters {
         stringParam('GIT_COMMIT')
 
     }
-
+    scm {
+        git '/home/jenkins/greeting-demo-app'
+    }
     steps {
         shell "echo \${GIT_COMMIT}"
+        shell
     }
 
 }
