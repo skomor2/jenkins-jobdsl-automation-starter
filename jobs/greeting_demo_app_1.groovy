@@ -36,7 +36,7 @@ job('greeting-demo-app-1') {
                 reportName('Report')
             }
         }
-        postBuildTask {
+ //       postBuildTask {
             downstreamParameterized {
                 trigger('downstream1') {
                     parameters {
@@ -44,7 +44,7 @@ job('greeting-demo-app-1') {
                     }
                 }
             }
-        }
+//        }
     }
     scm {
         git '/home/jenkins/greeting-demo-app'
@@ -58,8 +58,6 @@ job('greeting-demo-app-1') {
         shell 'echo GIT_COMMIT'
 
     }
-
-
 
 
 }
