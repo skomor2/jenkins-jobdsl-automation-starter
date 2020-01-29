@@ -49,5 +49,18 @@ job('greeting-demo-app-1') {
         gradle('build')
 
     }
+    downstreamParameterized  {
+        triggers('downstream1')  {
+            parameters {
+                predefinedProp('COMMIT_ID', '$COMMIT_ID')
+            }
+        }
+    }
+
+
+
+}
+job('downstream1') {
+
 
 }
