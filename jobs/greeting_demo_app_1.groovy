@@ -73,7 +73,7 @@ job('downstream1') {
     }
     steps {
         shell "echo \${GIT_COMMIT}"
-        shell
+
     }
 
 }
