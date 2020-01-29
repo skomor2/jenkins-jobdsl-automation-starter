@@ -64,7 +64,7 @@ job('greeting-demo-app-1') {
 }
 job('downstream1') {
     parameters {
-        stringParam('$GIT_COMMIT')
+        stringParam('GIT_COMMIT')
 
     }
 
