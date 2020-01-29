@@ -52,8 +52,8 @@ job('greeting-demo-app-1') {
     steps {
 
         shell 'date > /home/jenkins/greeting-demo-app/data'
-        shell 'cd /home/jenkins/greeting-demo-app/data && git add data'
-        shell 'cd /home/jenkins/greeting-demo-app/data && git commit -m data'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git add data'
+        shell 'cd /home/jenkins/greeting-demo-app/ && git commit -m data'
         gradle('build')
 
     }
