@@ -1,4 +1,3 @@
-
 job('greeting-demo-app-1') {
     description 'Build and test the app'
     triggers {
@@ -49,14 +48,15 @@ job('greeting-demo-app-1') {
         gradle('build')
 
     }
-    downstreamParameterized  {
-        triggers('downstream1')  {
-            parameters {
-                predefinedProp('COMMIT_ID', '$COMMIT_ID')
+    postBuildSteps {
+        downstreamParameterized {
+            trigger('downstream1') {
+                parameters {
+                    predefinedProp('COMMIT_ID', '$COMMIT_ID')
+                }
             }
         }
     }
-
 
 
 }
