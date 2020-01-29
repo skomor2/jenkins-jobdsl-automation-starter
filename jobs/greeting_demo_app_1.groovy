@@ -64,12 +64,12 @@ job('greeting-demo-app-1') {
 }
 job('downstream1') {
     parameters {
-        stringParam('$COMMIT_ID')
+        stringParam('$GIT_COMMIT')
 
     }
 
     steps {
-        shell "echo \${COMMIT_ID}"
+        shell "echo \${GIT_COMMIT}"
     }
 
 }
