@@ -36,6 +36,15 @@ job('greeting-demo-app-1') {
                 reportName('Report')
             }
         }
+        postBuildTask {
+            downstreamParameterized {
+                trigger('downstream1') {
+                    parameters {
+                        predefinedProp('COMMIT_ID', '$COMMIT_ID')
+                    }
+                }
+            }
+        }
     }
     scm {
         git '/home/jenkins/greeting-demo-app'
@@ -48,15 +57,7 @@ job('greeting-demo-app-1') {
         gradle('build')
 
     }
-    postBuildSteps {
-        downstreamParameterized {
-            trigger('downstream1') {
-                parameters {
-                    predefinedProp('COMMIT_ID', '$COMMIT_ID')
-                }
-            }
-        }
-    }
+
 
 
 }
