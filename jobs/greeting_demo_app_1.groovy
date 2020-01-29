@@ -62,6 +62,13 @@ job('greeting-demo-app-1') {
 
 }
 job('downstream1') {
+    parameters {
+        stringParam('COMMIT_ID')
 
+    }
+
+    steps {
+        shell "echo $COMMIT_ID"
+    }
 
 }
