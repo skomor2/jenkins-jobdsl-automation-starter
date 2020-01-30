@@ -80,3 +80,26 @@ job('downstream1') {
     }
 
 }
+pipelineJob('pipeline-job-from-dsl') {
+    def repo = 'https://github.com/skomor2/pipelines.git'
+    description 'Build and test the app'
+
+    triggers {
+        scm('H/2 * * * *')
+    }
+    scm {
+        git '/home/jenkins/greeting-demo-app'
+    }
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {url(repo)}
+                    branches('master')
+                    scriptPath('Jenkinsfile')
+                    extensions {}
+                }
+            }
+        }
+    }
+}
