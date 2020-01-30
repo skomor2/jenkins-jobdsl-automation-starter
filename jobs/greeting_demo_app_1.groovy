@@ -87,17 +87,17 @@ pipelineJob('pipeline-job-from-dsl') {
     triggers {
         scm('H/2 * * * *')
     }
-    scm {
-        git '/home/jenkins/greeting-demo-app'
-    }
+
     definition {
         cpsScm {
+            scm {
                 git {
                     remote {url(repo)}
                     branches('master')
                     scriptPath('Jenkinsfile')
-                    extensions {}
+                    extension{}
                 }
+            }
         }
     }
 }
