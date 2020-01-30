@@ -92,14 +92,12 @@ pipelineJob('pipeline-job-from-dsl') {
     }
     definition {
         cpsScm {
-            scm {
                 git {
                     remote {url(repo)}
                     branches('master')
                     scriptPath('Jenkinsfile')
                     extensions {}
                 }
-            }
         }
     }
 }
