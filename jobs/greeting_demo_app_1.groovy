@@ -95,7 +95,7 @@ pipelineJob('pipeline-job-from-dsl') {
                     remote {url(repo)}
                     branches('master')
                     scriptPath('Jenkinsfile')
-                    extension{}
+
                 }
             }
         }
